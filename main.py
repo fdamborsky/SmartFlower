@@ -43,12 +43,10 @@ def read_sensors():
     print(f"Teplota: {temp_c:.2f}°C")
     print(f"Světlo: {ldr_percent}%")
     print(f"Vlhkost: {moisture_percent}%")
-    print("--------------")
     
     return temp_c, moisture_percent, ldr_percent
 
 def update_display(temp, moisture, ldr):
-    """Zobrazí hodnoty na displeji."""
     image = Image.new("RGB", (disp.width, disp.height), "BLACK")
     draw = ImageDraw.Draw(image)
 
@@ -60,7 +58,6 @@ def update_display(temp, moisture, ldr):
     disp.ShowImage(image)
 
 def main():
-    """Hlavní smyčka programu."""
     while True:
         temp, moisture, ldr = read_sensors()
         update_display(temp, moisture, ldr)
